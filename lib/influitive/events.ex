@@ -9,4 +9,9 @@ defmodule Influitive.Events do
   def list(params \\ []) do
     Http.get("events", [params: params])
   end
+
+  @spec log(map()) :: {:ok, map()} | {:error, any()}
+  def log(params) do
+    Http.post("events", params)
+  end
 end

@@ -30,6 +30,10 @@ defmodule Influitive.Http do
     request(:get, url_path, "", options)
   end
 
+  def headers do
+    ["Authorization": "Token #{Config.api_key}", "X_ORG_ID": Config.org_id]
+  end
+
   defp request(method, url_path, body \\ "", options \\ []) do
     url = build_url(url_path)
     body = encode_body(body)
@@ -45,16 +49,16 @@ defmodule Influitive.Http do
 
   defp encode_body(body), do: body
 
-  defp headers do
-    ["Authorization": "Token #{Config.api_key()}", "X_ORG_ID": Config.org_id]
-  end
-
   defp parse_response({:ok, %{body: body}}) do
-    Config.json_library().decode(body)
+    if body === "" do
+      body
+    else
+      Config.json_library().decode(body)
+    end
   end
 
   defp build_url(url_path) do
-    Config.api_url()
+    Config.api_endpoint()
     |> URI.merge(url_path)
   end
 end

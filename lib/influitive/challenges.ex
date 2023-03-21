@@ -17,6 +17,8 @@ defmodule Influitive.Challenges do
 
   @doc """
   Approve/Reject Challenges
+
+  decision can be approve, reject, or feedback_only
   """
   @spec approvals(integer(), String.t(), String.t()) :: success_or_error
   def approvals(challenge_id, decision, feedback \\ "") do
@@ -78,8 +80,8 @@ defmodule Influitive.Challenges do
   @doc """
   To return details on a given challenge identified by the challenge UUID
   """
-  @spec get_details(String.t()) :: success_or_error
-  def get_details(uuid) do
+  @spec get_additional_details(String.t()) :: success_or_error
+  def get_additional_details(uuid) do
     Http.get("challenges/#{uuid}")
   end
 end

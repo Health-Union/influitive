@@ -5,7 +5,11 @@ defmodule RewardsTest do
 
   setup do
     bypass = Bypass.open()
-    Application.put_env(:influitive, :api_url, endpoint_url(bypass.port))
+    Application.put_env(:influitive, :api_endpoint, "http://localhost:#{bypass.port}/")
+
+    on_exit(:clear_config, fn ->
+      Application.delete_env(:influitive, :api_endpoint)
+    end)
 
     {:ok, bypass: bypass}
   end
@@ -42,8 +46,6 @@ defmodule RewardsTest do
       assert expected_response == Rewards.reward_redemptions()
     end
   end
-
-  defp endpoint_url(port), do: "http://localhost:#{port}/"
 
   defp mock_success(bypass, method, url, response) do
     Bypass.expect(bypass, method, url, fn conn ->

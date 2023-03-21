@@ -52,7 +52,7 @@ defmodule Influitive.Members do
   """
   @spec create(map()) :: success_or_error
   def create(params) do
-    Http.post("members", [params: params])
+    Http.post("members", params)
   end
 
   @doc """
@@ -78,7 +78,7 @@ defmodule Influitive.Members do
   """
   @spec send_invite(integer(), boolean()) :: success_or_error
   def send_invite(id, deliver_emails) do
-    Http.post("members/#{id}/invitations", [params: %{deliver_emails: deliver_emails}])
+    Http.post("members/#{id}/invitations", %{deliver_emails: deliver_emails})
   end
 
   @doc """
@@ -89,7 +89,7 @@ defmodule Influitive.Members do
   """
   @spec update(integer(), map()) :: success_or_error
   def update(id, params) do
-    Http.patch("members/#{id}", [params: params])
+    Http.patch("members/#{id}", params)
   end
 
   @doc """
