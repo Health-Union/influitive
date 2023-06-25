@@ -38,9 +38,9 @@ defmodule Influitive.EventsTest do
       body_params = %{
         "type" => "custom_event_api_code",
         "contact" => %{
-           "id" => "",
-           "email" => "steveadvocate@acme.com"
-        },
+          "id" => "",
+          "email" => "steveadvocate@acme.com"
+        }
       }
 
       Bypass.expect(bypass, fn conn ->

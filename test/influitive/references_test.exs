@@ -18,9 +18,9 @@ defmodule Influitive.ReferencesTest do
     test "should hit the correct url", %{bypass: bypass} do
       create_or_update_params = %{
         "crm_opportunity_id" => "",
-        "prospect" => %{ "name" => "Steve", "email" => "steveo@influitive.com" },
-        "account" => %{ "name" => "", "email" => "", "title" => "", "company" => "" },
-        "members" => %{ "id" => "", "email" => "", "crm_contact_id" => "" },
+        "prospect" => %{"name" => "Steve", "email" => "steveo@influitive.com"},
+        "account" => %{"name" => "", "email" => "", "title" => "", "company" => ""},
+        "members" => %{"id" => "", "email" => "", "crm_contact_id" => ""},
         "advocates" => [],
         "status" => "requested",
         "close_challenge" => "false",

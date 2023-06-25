@@ -76,7 +76,7 @@ defmodule Influitive.HttpTest do
         Plug.Conn.resp(conn, 200, ~s<{}>)
       end)
 
-      Http.get("get_path", [params: %{foo: "bar"}])
+      Http.get("get_path", params: %{foo: "bar"})
     end
   end
 
@@ -85,9 +85,9 @@ defmodule Influitive.HttpTest do
       Application.put_env(:influitive, :api_key, "test-api-key")
       Application.put_env(:influitive, :org_id, "test-org-id")
 
-      assert Http.headers == [
-               "Authorization": "Token test-api-key",
-               "X_ORG_ID": "test-org-id"
+      assert Http.headers() == [
+               Authorization: "Token test-api-key",
+               X_ORG_ID: "test-org-id"
              ]
 
       Application.delete_env(:influitive, :api_key)

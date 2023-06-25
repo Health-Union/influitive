@@ -24,7 +24,7 @@ defmodule Influitive.ChallengesTest do
         Plug.Conn.resp(conn, 200, ~s<{}>)
       end)
 
-      Challenges.awaiting_approval
+      Challenges.awaiting_approval()
     end
   end
 
@@ -98,7 +98,7 @@ defmodule Influitive.ChallengesTest do
         "notes" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
         "advocates" => [
           %{
-            "id" => "13" ,
+            "id" => "13",
             "email" => "tmp@gmail.com",
             "crm_contact_id" => 1234,
             "first_name" => "foo",

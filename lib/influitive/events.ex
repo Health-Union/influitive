@@ -7,7 +7,7 @@ defmodule Influitive.Events do
 
   @spec list :: {:ok, map()} | {:error, any()}
   def list(params \\ []) do
-    Http.get("events", [params: params])
+    Http.get("events", params: params)
   end
 
   @spec log(map()) :: {:ok, map()} | {:error, any()}

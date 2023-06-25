@@ -155,7 +155,7 @@ defmodule Influitive.MembersTest do
     test "should call the correct url", %{bypass: bypass} do
       update_params = %{
         "title" => "CEO",
-        "company" => "Incorprated Inc.",
+        "company" => "Incorprated Inc."
       }
 
       Bypass.expect(bypass, fn conn ->
@@ -165,7 +165,11 @@ defmodule Influitive.MembersTest do
         {_status, body, _conn} = Plug.Conn.read_body(conn)
         assert {:ok, update_params} == Jason.decode(body)
 
-        Plug.Conn.resp(conn, 200, ~s<{"id": 123, "first_name": "Teresa", "last_name": "Test", "title": "CEO", "company": "Incorprated Inc.">)
+        Plug.Conn.resp(
+          conn,
+          200,
+          ~s<{"id": 123, "first_name": "Teresa", "last_name": "Test", "title": "CEO", "company": "Incorprated Inc.">
+        )
       end)
 
       Members.update(123, update_params)

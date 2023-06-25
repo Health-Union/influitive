@@ -19,17 +19,18 @@ defmodule Influitive.ReferralsTest do
       create_params = %{
         "referral" => %{
           "prospect" => %{
-          "first_name" => "Some",
-          "last_name" => "Prospect",
-          "email" => "some@prospect.com",
-          "title" => "CMO"
-        },
-        "contact" => %{
-          "first_name" => "Johnny",
-          "last_name" => "Advocate",
-          "email" => "johnny@advocate.com"
-        },
-        "campaign_id" => "98160557-5a70-4306-949e-ee8d2ea7f4b4"}
+            "first_name" => "Some",
+            "last_name" => "Prospect",
+            "email" => "some@prospect.com",
+            "title" => "CMO"
+          },
+          "contact" => %{
+            "first_name" => "Johnny",
+            "last_name" => "Advocate",
+            "email" => "johnny@advocate.com"
+          },
+          "campaign_id" => "98160557-5a70-4306-949e-ee8d2ea7f4b4"
+        }
       }
 
       Bypass.expect(bypass, fn conn ->

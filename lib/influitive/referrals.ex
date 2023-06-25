@@ -28,7 +28,7 @@ defmodule Influitive.Referrals do
   """
   @spec list(map()) :: success_or_error
   def list(query_params \\ []) do
-    Http.get("referrals", [params: query_params])
+    Http.get("referrals", params: query_params)
   end
 
   @doc """

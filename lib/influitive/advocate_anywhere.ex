@@ -13,7 +13,7 @@ defmodule Influitive.AdvocateAnywhere do
   """
   @spec challenges(map()) :: success_or_error
   def challenges(query_params) do
-    Http.get("embedded/challenges", [params: query_params])
+    Http.get("embedded/challenges", params: query_params)
   end
 
   @doc """
@@ -21,7 +21,7 @@ defmodule Influitive.AdvocateAnywhere do
   """
   @spec identify(map()) :: success_or_error
   def identify(query_params) do
-    Http.get("embedded/contacts/identify", [params: query_params])
+    Http.get("embedded/contacts/identify", params: query_params)
   end
 
   @doc """
@@ -29,6 +29,6 @@ defmodule Influitive.AdvocateAnywhere do
   """
   @spec submit_challenges(map()) :: success_or_error
   def submit_challenges(query_params) do
-    Http.get("embedded/challenges", [params: query_params])
+    Http.get("embedded/challenges", params: query_params)
   end
 end

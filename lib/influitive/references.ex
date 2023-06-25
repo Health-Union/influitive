@@ -34,6 +34,6 @@ defmodule Influitive.References do
   """
   @spec completions(String.t()) :: success_or_error
   def completions(cursor \\ "") do
-    Http.get("references", [params: %{cursor: cursor}])
+    Http.get("references", params: %{cursor: cursor})
   end
 end

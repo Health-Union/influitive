@@ -16,16 +16,20 @@ defmodule RewardsTest do
 
   describe "Rewards.list" do
     test "correctly parse success response", %{bypass: bypass} do
-      mocked_response = ~s<[{"uuid":"afbcc0a4-f025-414e-91e5-35e430f4e72c","provider":"robert","published":"true"}]>
+      mocked_response =
+        ~s<[{"uuid":"afbcc0a4-f025-414e-91e5-35e430f4e72c","provider":"robert","published":"true"}]>
+
       mock_success(bypass, "GET", "external/rewards", mocked_response)
 
-      expected_response = {:ok, [
-        %{
-          "provider" => "robert",
-          "published" => "true",
-          "uuid" => "afbcc0a4-f025-414e-91e5-35e430f4e72c"
-        }
-      ]}
+      expected_response =
+        {:ok,
+         [
+           %{
+             "provider" => "robert",
+             "published" => "true",
+             "uuid" => "afbcc0a4-f025-414e-91e5-35e430f4e72c"
+           }
+         ]}
 
       assert expected_response == Rewards.list()
     end
@@ -36,12 +40,12 @@ defmodule RewardsTest do
       mocked_response = ~s<{"reward_redemptions": [], "contacts": []}>
       mock_success(bypass, "GET", "reward_redemptions", mocked_response)
 
-      expected_response = {:ok,
-        %{
-          "reward_redemptions" => [],
-          "contacts" => []
-        }
-      }
+      expected_response =
+        {:ok,
+         %{
+           "reward_redemptions" => [],
+           "contacts" => []
+         }}
 
       assert expected_response == Rewards.reward_redemptions()
     end

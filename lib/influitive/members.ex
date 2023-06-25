@@ -12,7 +12,7 @@ defmodule Influitive.Members do
   """
   @spec list :: success_or_error
   def list(query_params \\ []) do
-    Http.get("contacts", [params: query_params])
+    Http.get("contacts", params: query_params)
   end
 
   @doc """
@@ -28,7 +28,7 @@ defmodule Influitive.Members do
   """
   @spec find_by_email(String.t()) :: success_or_error
   def find_by_email(email) do
-    Http.get("members", [params: %{email: email}])
+    Http.get("members", params: %{email: email})
   end
 
   @doc """
@@ -44,7 +44,7 @@ defmodule Influitive.Members do
   """
   @spec recently_updated(past_hours :: integer()) :: success_or_error
   def recently_updated(past_hours) do
-    Http.get("updated_contacts", [params: %{past_hours: past_hours}])
+    Http.get("updated_contacts", params: %{past_hours: past_hours})
   end
 
   @doc """

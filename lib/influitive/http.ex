@@ -31,7 +31,7 @@ defmodule Influitive.Http do
   end
 
   def headers do
-    ["Authorization": "Token #{Config.api_key}", "X_ORG_ID": Config.org_id]
+    [Authorization: "Token #{Config.api_key()}", X_ORG_ID: Config.org_id()]
   end
 
   defp request(method, url_path, body \\ "", options \\ []) do
