@@ -6,7 +6,7 @@ defmodule Influitive.MixProject do
   def project do
     [
       app: :influitive,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.13",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -23,6 +23,7 @@ defmodule Influitive.MixProject do
 
   defp deps do
     [
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:httpoison, "~> 1.8"},
       {:jason, "~> 1.4"},
       {:bypass, "~> 2.1", only: :test}
