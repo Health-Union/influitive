@@ -2,6 +2,10 @@
 
 A wrapper around the Influitive API
 
+[Github](https://github.com/Health-Union/influitive)
+
+[HexDocs](https://hexdocs.pm/influitive)
+
 ## Installation
 
 The package can be installed by adding `influitive` to your list of dependencies in `mix.exs`:
@@ -13,9 +17,6 @@ def deps do
   ]
 end
 ```
-
-[HexDocs](https://hexdocs.pm/influitive)
-
 
 ## Configuration
 
