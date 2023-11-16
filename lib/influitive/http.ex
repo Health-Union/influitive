@@ -57,6 +57,8 @@ defmodule Influitive.Http do
     end
   end
 
+  defp parse_response(response), do: response
+
   defp build_url(url_path) do
     Config.api_endpoint()
     |> URI.merge(url_path)
