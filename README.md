@@ -1,21 +1,34 @@
 # influitive_ex
 
-**TODO: Add description**
+A wrapper around the Influitive API
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `influitive` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `influitive` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:influitive, "~> 0.1.0"}
+    {:influitive, "~> 0.1.2"}
   ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/influitive>.
+[HexDocs](https://hexdocs.pm/influitive)
 
+
+## Configuration
+
+Put your API key and Org ID in your `config.exs` file:
+
+```elixir
+config :influitive,
+  api_key: "myApiKey",
+  org_id: "myOrgId"
+```
+
+You can customize the json library to use another library via the `:json_library` configuration:
+
+```elixir
+config :influitive, :json_library, SomeOtherLib
+```
