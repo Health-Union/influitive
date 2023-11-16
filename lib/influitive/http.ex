@@ -31,7 +31,12 @@ defmodule Influitive.Http do
   end
 
   def headers do
-    [Authorization: "Token #{Config.api_key()}", X_ORG_ID: Config.org_id(), Accept: "application/json", "Content-Type": "application/json"]
+    [
+      Authorization: "Token #{Config.api_key()}",
+      X_ORG_ID: Config.org_id(),
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    ]
   end
 
   defp request(method, url_path, body \\ "", options \\ []) do
@@ -56,6 +61,8 @@ defmodule Influitive.Http do
       Config.json_library().decode(body)
     end
   end
+
+  defp parse_response(response), do: response
 
   defp build_url(url_path) do
     Config.api_endpoint()
